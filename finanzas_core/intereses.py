@@ -37,11 +37,26 @@ def simular_pago_extra(principal, tasa_anual_decimal, meses, extra_mensual):
 
     if i == 0:
         nuevos_meses = math.ceil(principal / pago_total)
+        interes_nuevo = 0.0
     else:
-        nuevos_meses = math.ceil(-math.log(1 - (i * principal) / pago_total) / math.log(1 + i))
+        # Simulación exacta del saldo mes a mes
+        balance = principal
+        total_pagado = 0.0
+        nuevos_meses = 0
+        
+        while balance > 0.0001:
+            nuevos_meses += 1
+            interes_mes = balance * i
+            if balance + interes_mes <= pago_total:
+                total_pagado += balance + interes_mes
+                balance = 0.0
+            else:
+                total_pagado += pago_total
+                balance = (balance + interes_mes) - pago_total
+                
+        interes_nuevo = total_pagado - principal
 
     interes_original = (pago_normal * meses) - principal
-    interes_nuevo = (pago_total * nuevos_meses) - principal
 
     return {
         'pago_normal': pago_normal,
