@@ -1,11 +1,5 @@
-from cli.menu_credito import menu_credito
-from cli.menu_intereses import (
-    menu_interes_simple,
-    menu_interes_compuesto,
-    menu_descuento,
-    menu_prestamos,
-    menu_retiro
-)
+from cli import menu_credito as mc
+from cli import menu_intereses as mi
 
 def menu_principal():
     while True:
@@ -23,17 +17,17 @@ def menu_principal():
         opcion = input("Seleccione una opción: ").strip()
         
         if opcion == "1":
-            menu_interes_simple()
+            mi.menu_interes_simple()
         elif opcion == "2":
-            menu_interes_compuesto()
+            mi.menu_interes_compuesto()
         elif opcion == "3":
-            menu_descuento()
+            mi.menu_descuento()
         elif opcion == "4":
-            menu_prestamos()
+            mi.menu_prestamos()
         elif opcion == "5":
-            menu_retiro()
+            mi.menu_retiro()
         elif opcion == "6":
-            menu_credito()
+            mc.menu_credito()
         elif opcion == "7":
             print("👋 Saliendo del programa...")
             break
