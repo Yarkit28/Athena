@@ -13,7 +13,8 @@ def pedir_numero_positivo(mensaje, es_entero=False, rango_min=None, rango_max=No
                 val = float(val_str)
                 if not permitir_cero and val <= 0:
                     print("❌ Error, debe ser un número mayor a 0")
-                    continue
+                    return False 
+                    #continue
                 if permitir_cero and val < 0:
                     print("❌ Error, debe ser un número mayor o igual a 0")
                     continue

@@ -17,3 +17,7 @@ ENV/
 # IDE
 .vscode/
 .idea/
+
+# tutoriales
+clases_tkinter.py
+pruebas_tkinter.py
