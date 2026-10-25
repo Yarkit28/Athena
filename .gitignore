@@ -5,6 +5,14 @@ __pycache__/
 *.so
 .Python
 
+# Archivos compilados individuales
+*.pyc
+*.pyo
+*.pyd
+
+# Carpeta de caché de Python
+__pycache__/
+
 # Sublime Text
 *.sublime-workspace
 *.sublime-project
