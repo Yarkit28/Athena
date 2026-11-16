@@ -1,3 +1,7 @@
+"""
+Módulo de Dominio - Crédito y Amortización
+Contiene algoritmos puros para el cálculo de amortización de tarjetas y préstamos.
+"""
 from decimal import Decimal, ROUND_HALF_UP
 
 def calcular_tabla_amortizacion(balance_inicial, tasa_anual, cargo_recurrente=0,
@@ -34,13 +38,16 @@ def calcular_tabla_amortizacion(balance_inicial, tasa_anual, cargo_recurrente=0,
         balance_final_redondeado = Decimal(str(balance_final)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
         balance_final = float(balance_final_redondeado)
         
+        # Se agregan aliases 'balance_inicial' y 'pago_total' para máxima compatibilidad con GUI y CLI
         tabla.append({
             'mes': mes,
             'balance': balance,
+            'balance_inicial': balance,
             'interes': interes,
             'cargo': cargo_recurrente,
             'new_balance': new_balance,
             'pago': pago,
+            'pago_total': pago,
             'balance_final': balance_final
         })
         
